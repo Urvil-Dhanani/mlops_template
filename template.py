@@ -18,6 +18,7 @@ list_of_files = [
     "src/logger/logging.py",
     "src/exception/__init__.py",
     "src/exception/exception.py",
+    "tests/__init__.py",
     "tests/unit/__init__.py",
     "tests/integration/__init__.py",
     "init_setup.sh",
@@ -34,9 +35,11 @@ for filepath in list_of_files:
     filepath = Path(filepath)
     filedir, filename = os.path.split(filepath)
 
+    # create the directory
     if filedir != "":
         os.makedirs(filedir, exist_ok = True)
 
+    # create file 
     if (not os.path.exists(filepath)) or (os.path.getsize(filepath) == 0):
         with open(filepath, "w") as f:
             pass
